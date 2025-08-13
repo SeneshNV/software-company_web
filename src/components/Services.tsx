@@ -1,5 +1,8 @@
 import React from 'react';
 import { Code2, Smartphone, Globe, Database, Cloud, Shield } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
 const Services: React.FC = () => {
   const services = [
@@ -58,31 +61,29 @@ const Services: React.FC = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              className="group bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                {service.icon}
-              </div>
-              
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                {service.title}
-              </h3>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                    <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <CardHeader>
+                <div className="flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-xl mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  {service.icon}
+                </div>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardDescription className="leading-relaxed">
+                  {service.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <Badge key={featureIndex} variant="secondary" className="text-xs">
+                      {feature}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
 
@@ -91,15 +92,16 @@ const Services: React.FC = () => {
           <p className="text-lg text-gray-600 mb-6">
             Ready to discuss your project?
           </p>
-          <button
+          <Button
+            size="lg"
             onClick={() => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+            className="hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
           >
             Start Your Project
-          </button>
+          </Button>
         </div>
       </div>
     </section>

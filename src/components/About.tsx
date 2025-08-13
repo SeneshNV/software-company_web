@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, Award, Users, Zap } from 'lucide-react';
+import { Card, CardContent } from './ui/card';
 
 const About: React.FC = () => {
   const values = [
@@ -51,8 +52,60 @@ const About: React.FC = () => {
             {/* Values */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {values.map((value, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                <Card key={index} className="p-4 hover:shadow-md transition-shadow duration-200">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
+                      {value.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2">{value.title}</h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="relative">
+            <div className="relative z-10">
+              <img
+                src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Modern office environment"
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+            {/* Background decoration */}
+            <div className="absolute -bottom-6 -left-6 w-full h-full bg-primary/10 rounded-2xl -z-10"></div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t">
+          <Card className="text-center p-6">
+            <div className="text-4xl font-bold text-foreground mb-2">7+</div>
+            <div className="text-muted-foreground">Years Experience</div>
+          </Card>
+          <Card className="text-center p-6">
+            <div className="text-4xl font-bold text-foreground mb-2">500+</div>
+            <div className="text-muted-foreground">Projects Completed</div>
+          </Card>
+          <Card className="text-center p-6">
+            <div className="text-4xl font-bold text-foreground mb-2">150+</div>
+            <div className="text-muted-foreground">Happy Clients</div>
+          </Card>
+          <Card className="text-center p-6">
+            <div className="text-4xl font-bold text-foreground mb-2">25+</div>
+            <div className="text-muted-foreground">Team Members</div>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
                     {value.icon}
                   </div>
                   <div>

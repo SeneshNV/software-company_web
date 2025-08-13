@@ -1,5 +1,7 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
+import { Button } from './ui/button';
+import { Badge } from './ui/badge';
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -16,6 +18,9 @@ const Hero: React.FC = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
+              <Badge variant="secondary" className="mb-4">
+                🚀 Trusted by 500+ companies worldwide
+              </Badge>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Innovative
                 <span className="text-blue-600"> Software</span>
@@ -31,20 +36,23 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
+              <Button
+                size="lg"
                 onClick={() => scrollToSection('contact')}
-                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+                className="hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
               >
                 Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
                 onClick={() => scrollToSection('services')}
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-gray-400 transition-all duration-200 hover:shadow-md"
+                className="hover:shadow-md transition-all duration-200"
               >
                 <Play className="w-5 h-5 mr-2" />
                 Watch Demo
-              </button>
+              </Button>
             </div>
 
             {/* Stats */}

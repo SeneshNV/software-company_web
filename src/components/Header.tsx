@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Code2 } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,9 +53,9 @@ const Header: React.FC = () => {
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+              asChild
             >
-              Contact
+              <Button>Contact</Button>
             </button>
           </nav>
 
@@ -97,7 +98,7 @@ const Header: React.FC = () => {
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 font-medium w-full text-left"
+                className="block px-3 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors duration-200 font-medium w-full text-left"
               >
                 Contact
               </button>
